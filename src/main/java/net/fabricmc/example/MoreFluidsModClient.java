@@ -24,6 +24,13 @@ public class MoreFluidsModClient implements ClientModInitializer {
                 0x563119
         ));
 
+        //BLOOD
+        FluidRenderHandlerRegistry.INSTANCE.register(MoreFluidsMod.STILL_BLOOD, MoreFluidsMod.FLOWING_BLOOD, new SimpleFluidRenderHandler(
+                new Identifier("minecraft:block/water_still"),
+                new Identifier("minecraft:block/water_flow"),
+                0x5B0001
+        ));
+
     }
 
 }
