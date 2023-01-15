@@ -3,6 +3,7 @@ Minecraft mod that adds new fluids to the game, each having some effect applied 
 ## Fluids
 - 🛢️ Petroleum
 - ☕ Coffee
+- 🩸 Blood
 - ☠️ Acid
 
 ## License
