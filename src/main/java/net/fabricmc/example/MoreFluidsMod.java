@@ -1,7 +1,7 @@
 package net.fabricmc.example;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.example.liquid.SmokeFluid;
+import net.fabricmc.example.liquid.PetroleumFluid;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -14,6 +14,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 import net.minecraft.util.Identifier;
+import net.minecraft.world.gen.feature.LakeFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,23 +31,24 @@ public class MoreFluidsMod implements ModInitializer {
 			.icon(() -> new ItemStack(Items.BUCKET))
 			.build();
 
-	//SMOKE
-	public static FlowableFluid FLOWING_SMOKE;
-	public static FlowableFluid STILL_SMOKE;
-	public static Item SMOKE_BUCKET;
-	public static Block SMOKE;
+	//PETROLEUM
+	public static LakeFeature PETROLEUM_LAKE;
+	public static FlowableFluid FLOWING_PETROLEUM;
+	public static FlowableFluid STILL_PETROLEUM;
+	public static Item PETROLEUM_BUCKET;
+	public static Block PETROLEUM;
 
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Running more-fluids");
 
 		ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(content -> {
-			content.add(SMOKE_BUCKET);
+			content.add(PETROLEUM_BUCKET);
 		});
 
-		STILL_SMOKE = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "smoke"), new SmokeFluid.Still());
-		FLOWING_SMOKE = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_smoke"), new SmokeFluid.Flowing());
-		SMOKE_BUCKET = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "smoke_bucket"), new BucketItem(STILL_SMOKE, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
-		SMOKE = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "smoke"), new FluidBlock(STILL_SMOKE, FabricBlockSettings.copyOf(Blocks.WATER)){});
+		STILL_PETROLEUM = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "petroleum"), new PetroleumFluid.Still());
+		FLOWING_PETROLEUM = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_petroleum"), new PetroleumFluid.Flowing());
+		PETROLEUM_BUCKET = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "petroleum_bucket"), new BucketItem(STILL_PETROLEUM, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
+		PETROLEUM = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "petroleum"), new FluidBlock(STILL_PETROLEUM, FabricBlockSettings.copyOf(Blocks.WATER)){});
 	}
 }

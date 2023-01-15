@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "net.fabricmc.example.MoreFluidsMod"
+    ],
+    "client": [
+      "net.fabricmc.example.MoreFluidsModClient"
     ]
   },
   "mixins": [

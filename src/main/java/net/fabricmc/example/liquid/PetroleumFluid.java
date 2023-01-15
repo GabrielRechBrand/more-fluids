@@ -9,16 +9,16 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.world.WorldView;
 
-public class SmokeFluid extends AbstractFluid {
+public class PetroleumFluid extends AbstractFluid {
 
     @Override
     public Fluid getFlowing() {
-        return MoreFluidsMod.FLOWING_SMOKE;
+        return MoreFluidsMod.FLOWING_PETROLEUM;
     }
 
     @Override
     public Fluid getStill() {
-        return MoreFluidsMod.STILL_SMOKE;
+        return MoreFluidsMod.STILL_PETROLEUM;
     }
 
     @Override
@@ -28,12 +28,12 @@ public class SmokeFluid extends AbstractFluid {
 
     @Override
     public Item getBucketItem() {
-        return MoreFluidsMod.SMOKE_BUCKET;
+        return MoreFluidsMod.PETROLEUM_BUCKET;
     }
 
     @Override
     protected BlockState toBlockState(FluidState state) {
-        return MoreFluidsMod.SMOKE.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
+        return MoreFluidsMod.PETROLEUM.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class SmokeFluid extends AbstractFluid {
     }
 
 
-    public static class Flowing extends SmokeFluid {
+    public static class Flowing extends PetroleumFluid {
         @Override
         protected void appendProperties(StateManager.Builder<Fluid, FluidState> builder) {
             super.appendProperties(builder);
@@ -65,7 +65,7 @@ public class SmokeFluid extends AbstractFluid {
         }
     }
 
-    public static class Still extends SmokeFluid {
+    public static class Still extends PetroleumFluid {
         @Override
         public int getLevel(FluidState fluidState) {
             return 8;
