@@ -1,6 +1,7 @@
 package net.fabricmc.example;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.example.fluid.AcidFluid;
 import net.fabricmc.example.fluid.BloodFluid;
 import net.fabricmc.example.fluid.CoffeeFluid;
 import net.fabricmc.example.fluid.PetroleumFluid;
@@ -50,6 +51,12 @@ public class MoreFluidsMod implements ModInitializer {
 	public static FlowableFluid STILL_BLOOD;
 	public static FlowableFluid FLOWING_BLOOD;
 
+	//ACID
+	public static Block ACID;
+	public static Item ACID_BUCKET;
+	public static FlowableFluid STILL_ACID;
+	public static FlowableFluid FLOWING_ACID;
+
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Running more-fluids");
@@ -58,6 +65,7 @@ public class MoreFluidsMod implements ModInitializer {
 			content.add(PETROLEUM_BUCKET);
 			content.add(COFFEE_BUCKET);
 			content.add(BLOOD_BUCKET);
+			content.add(ACID_BUCKET);
 		});
 
 		STILL_PETROLEUM = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "petroleum"), new PetroleumFluid.Still());
@@ -74,5 +82,10 @@ public class MoreFluidsMod implements ModInitializer {
 		FLOWING_BLOOD = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_blood"), new BloodFluid.Flowing());
 		BLOOD_BUCKET = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "blood_bucket"), new BucketItem(STILL_BLOOD, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
 		BLOOD = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "blood"), new FluidBlock(STILL_BLOOD, FabricBlockSettings.copyOf(Blocks.WATER)){});
+
+		STILL_ACID = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "acid"), new AcidFluid.Still());
+		FLOWING_ACID = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_acid"), new AcidFluid.Flowing());
+		ACID_BUCKET = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "acid_bucket"), new BucketItem(STILL_ACID, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
+		ACID = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "acid"), new FluidBlock(STILL_ACID, FabricBlockSettings.copyOf(Blocks.WATER)){});
 	}
 }

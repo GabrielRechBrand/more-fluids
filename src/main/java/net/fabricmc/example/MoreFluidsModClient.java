@@ -31,6 +31,13 @@ public class MoreFluidsModClient implements ClientModInitializer {
                 0x5B0001
         ));
 
+        //ACID
+        FluidRenderHandlerRegistry.INSTANCE.register(MoreFluidsMod.STILL_ACID, MoreFluidsMod.FLOWING_ACID, new SimpleFluidRenderHandler(
+                new Identifier("minecraft:block/water_still"),
+                new Identifier("minecraft:block/water_flow"),
+                0x1E5616
+        ));
+
     }
 
 }
