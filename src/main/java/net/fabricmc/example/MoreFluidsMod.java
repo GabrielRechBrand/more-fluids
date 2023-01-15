@@ -14,7 +14,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.LakeFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,11 +31,10 @@ public class MoreFluidsMod implements ModInitializer {
 			.build();
 
 	//PETROLEUM
-	public static LakeFeature PETROLEUM_LAKE;
-	public static FlowableFluid FLOWING_PETROLEUM;
-	public static FlowableFluid STILL_PETROLEUM;
-	public static Item PETROLEUM_BUCKET;
 	public static Block PETROLEUM;
+	public static Item PETROLEUM_BUCKET;
+	public static FlowableFluid STILL_PETROLEUM;
+	public static FlowableFluid FLOWING_PETROLEUM;
 
 	@Override
 	public void onInitialize() {
@@ -46,9 +44,9 @@ public class MoreFluidsMod implements ModInitializer {
 			content.add(PETROLEUM_BUCKET);
 		});
 
+		PETROLEUM = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "petroleum"), new FluidBlock(STILL_PETROLEUM, FabricBlockSettings.copyOf(Blocks.WATER)){});
+		PETROLEUM_BUCKET = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "petroleum_bucket"), new BucketItem(STILL_PETROLEUM, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
 		STILL_PETROLEUM = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "petroleum"), new PetroleumFluid.Still());
 		FLOWING_PETROLEUM = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_petroleum"), new PetroleumFluid.Flowing());
-		PETROLEUM_BUCKET = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "petroleum_bucket"), new BucketItem(STILL_PETROLEUM, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
-		PETROLEUM = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "petroleum"), new FluidBlock(STILL_PETROLEUM, FabricBlockSettings.copyOf(Blocks.WATER)){});
 	}
 }
