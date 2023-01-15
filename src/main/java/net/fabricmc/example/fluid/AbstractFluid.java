@@ -1,4 +1,4 @@
-package net.fabricmc.example.liquid;
+package net.fabricmc.example.fluid;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
