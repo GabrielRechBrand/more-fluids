@@ -33,6 +33,11 @@ public class AcidFluid extends AbstractFluid {
     }
 
     @Override
+    public int getTickRate(WorldView world) {
+        return 2;
+    }
+
+    @Override
     public Item getBucketItem() {
         return MoreFluidsMod.ACID_BUCKET;
     }

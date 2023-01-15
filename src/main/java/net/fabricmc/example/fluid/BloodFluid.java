@@ -33,6 +33,11 @@ public class BloodFluid extends AbstractFluid {
     }
 
     @Override
+    public int getTickRate(WorldView world) {
+        return 6;
+    }
+
+    @Override
     public Item getBucketItem() {
         return MoreFluidsMod.BLOOD_BUCKET;
     }

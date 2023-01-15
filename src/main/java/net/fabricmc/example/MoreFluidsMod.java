@@ -5,18 +5,24 @@ import net.fabricmc.example.fluid.AcidFluid;
 import net.fabricmc.example.fluid.BloodFluid;
 import net.fabricmc.example.fluid.CoffeeFluid;
 import net.fabricmc.example.fluid.PetroleumFluid;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
+import net.minecraft.datafixer.fix.BiomesFix;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
 import net.minecraft.util.Identifier;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.LakeFeature;
+import net.minecraft.world.gen.feature.SingleStateFeatureConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,6 +78,7 @@ public class MoreFluidsMod implements ModInitializer {
 		FLOWING_PETROLEUM = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_petroleum"), new PetroleumFluid.Flowing());
 		PETROLEUM_BUCKET = Registry.register(Registries.ITEM, new Identifier(MOD_ID, "petroleum_bucket"), new BucketItem(STILL_PETROLEUM, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
 		PETROLEUM = Registry.register(Registries.BLOCK, new Identifier(MOD_ID, "petroleum"), new FluidBlock(STILL_PETROLEUM, FabricBlockSettings.copyOf(Blocks.WATER)){});
+
 
 		STILL_COFFEE = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "coffee"), new CoffeeFluid.Still());
 		FLOWING_COFFEE = Registry.register(Registries.FLUID, new Identifier(MOD_ID, "flowing_coffee"), new CoffeeFluid.Flowing());

@@ -33,6 +33,11 @@ public class PetroleumFluid extends AbstractFluid {
     }
 
     @Override
+    public int getTickRate(WorldView world) {
+        return 4;
+    }
+
+    @Override
     public Item getBucketItem() {
         return MoreFluidsMod.PETROLEUM_BUCKET;
     }
