@@ -1,4 +1,5 @@
 {
   "item.more-fluids.petroleum_bucket": "Petroleum Bucket",
-  "item.more-fluids.coffee_bucket": "Coffee Bucket"
+  "item.more-fluids.coffee_bucket": "Coffee Bucket",
+  "itemGroup.more-fluids.fluids": "Fluids"
 }

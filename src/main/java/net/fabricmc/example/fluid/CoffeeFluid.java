@@ -7,39 +7,32 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public class PetroleumFluid extends AbstractFluid {
-
+public class CoffeeFluid extends AbstractFluid {
     @Override
     public Fluid getFlowing() {
-        return MoreFluidsMod.FLOWING_PETROLEUM;
+        return MoreFluidsMod.FLOWING_COFFEE;
     }
 
     @Override
     public Fluid getStill() {
-        return MoreFluidsMod.STILL_PETROLEUM;
+        return MoreFluidsMod.STILL_COFFEE;
     }
 
     @Override
     protected int getFlowSpeed(WorldView world) {
-        return 4;
-    }
-
-    @Override
-    public int getLevel(FluidState state) {
         return 8;
     }
 
     @Override
     public Item getBucketItem() {
-        return MoreFluidsMod.PETROLEUM_BUCKET;
+        return MoreFluidsMod.COFFEE_BUCKET;
     }
 
     @Override
     protected BlockState toBlockState(FluidState state) {
-        return MoreFluidsMod.PETROLEUM.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
+        return MoreFluidsMod.COFFEE.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
     }
 
     @Override
@@ -48,11 +41,12 @@ public class PetroleumFluid extends AbstractFluid {
     }
 
     @Override
-    protected boolean isInfinite(World world) {
-        return true;
+    public int getLevel(FluidState state) {
+        return 0;
     }
 
-    public static class Flowing extends PetroleumFluid {
+
+    public static class Flowing extends CoffeeFluid {
         @Override
         protected void appendProperties(StateManager.Builder<Fluid, FluidState> builder) {
             super.appendProperties(builder);
@@ -70,7 +64,7 @@ public class PetroleumFluid extends AbstractFluid {
         }
     }
 
-    public static class Still extends PetroleumFluid {
+    public static class Still extends CoffeeFluid {
         @Override
         public int getLevel(FluidState fluidState) {
             return 8;
@@ -81,5 +75,4 @@ public class PetroleumFluid extends AbstractFluid {
             return true;
         }
     }
-
 }

@@ -1,4 +1,5 @@
 {
   "item.more-fluids.petroleum_bucket": "Balde de Petróleo",
-  "item.more-fluids.coffee_bucket": "Balde de Café"
+  "item.more-fluids.coffee_bucket": "Balde de Café",
+  "itemGroup.more-fluids.fluids": "Fluidos"
 }
