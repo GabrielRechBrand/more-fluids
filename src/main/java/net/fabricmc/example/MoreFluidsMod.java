@@ -5,24 +5,19 @@ import net.fabricmc.example.fluid.AcidFluid;
 import net.fabricmc.example.fluid.BloodFluid;
 import net.fabricmc.example.fluid.CoffeeFluid;
 import net.fabricmc.example.fluid.PetroleumFluid;
-import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
-import net.minecraft.datafixer.fix.BiomesFix;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-
 import net.minecraft.util.Identifier;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.feature.LakeFeature;
-import net.minecraft.world.gen.feature.SingleStateFeatureConfig;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
