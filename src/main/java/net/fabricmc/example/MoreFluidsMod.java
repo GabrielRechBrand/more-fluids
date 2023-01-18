@@ -60,7 +60,7 @@ public class MoreFluidsMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Running more-fluids");
+		LOGGER.info("Running more-fluids mod!");
 
 		ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(content -> {
 			content.add(PETROLEUM_BUCKET);
