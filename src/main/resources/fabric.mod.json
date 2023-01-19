@@ -3,10 +3,10 @@
   "id": "more-fluids",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "More fluids",
+  "description": "Minecraft mod that adds new fluids to the game, each having some effect applied to the player.",
   "authors": [
-    "Me!"
+    "Gabriel Rech Brand"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
